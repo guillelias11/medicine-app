@@ -16,7 +16,7 @@ const agregar = async (req, res) => {
     try {
         const usuario = new Usuario(req.body);
         const usuarioGuardado = await usuario.save();
-        res.json({ body: usuarioGuardado, ok: "SI", msg: "Registro creado correctamente." });
+        res.json({ body: usuarioGuardado, ok: "SI", msg: "Usuario Creado Correctamente." });
     } catch (error) {
         console.log(error);
     }
@@ -41,13 +41,13 @@ const eliminar = async (req, res) => {
     const usuario = await Usuario.findById(id);
 
     if (!usuario) {
-        const error = new Error("Registro no encontrado.");
+        const error = new Error("Usuario No Encontrado.");
         return res.status(404).json({ msg: error.message, ok: "NO" });
     }
 
     try {
         await usuario.deleteOne();
-        res.json({ msg: "Registro eliminado correctamente.", ok: "SI" });
+        res.json({ msg: "Usuario Eliminado Correctamente.", ok: "SI" });
     } catch (error) {
         console.log(error);
     }
@@ -61,7 +61,7 @@ const editar = async (req, res) => {
     const usuario = await Usuario.findById(id);
 
     if (!usuario) {
-        const error = new Error("Registro no encontrado.");
+        const error = new Error("Usuario No Encontrado.");
         return res.status(404).json({ msg: error.message, ok: "NO" });
     }
 
@@ -78,7 +78,7 @@ const editar = async (req, res) => {
 
     try {
         const usuarioGuardado = await usuario.save();
-        res.json({ body: usuarioGuardado, msg: "Registro actualizado correctamente.", ok: "SI" });
+        res.json({ body: usuarioGuardado, msg: "Usuario Actualizado Correctamente.", ok: "SI" });
     } catch (error) {
         console.log(error);
     }
@@ -92,7 +92,7 @@ const listarUno = async (req, res) => {
     const usuario = await Usuario.findById(id);
 
     if (!usuario) {
-        const error = new Error("Registro no encontrado.");
+        const error = new Error("Usuario No Encontrado.");
         return res.status(404).json({ msg: error.message, ok: "NO" });
     }
 
@@ -136,7 +136,7 @@ const crearCuenta = async (req, res) => {
     try {
         const usuario = new Usuario(req.body);
         const usuarioGuardado = await usuario.save();
-        res.json({ body: usuarioGuardado, ok: "SI", msg: "Registro creado correctamente." });
+        res.json({ body: usuarioGuardado, ok: "SI", msg: "Usuario Creado Correctamente." });
     } catch (error) {
         console.log(error);
     }

@@ -4,7 +4,7 @@ const conectarDB = () => {
     const urlConexion = String(process.env.MONGO_URI);
     connect(urlConexion)
         .then(con => {
-            console.log(`conexion establecida con la base: ${urlConexion}`);
+            console.log(`conexion establecida en la base de datos: ${urlConexion}`);
         })
         .catch(error => {
             console.log(error);

@@ -13,7 +13,7 @@ const agregar = async (req, res) => {
     try {
         const rol = new Rol(req.body);
         const rolGuardado = await rol.save();
-        res.json({ body: rolGuardado, ok: "SI", msg: "Registro creado correctamente." })
+        res.json({ body: rolGuardado, ok: "SI", msg: "Rol Creado Correctamente." })
     } catch (error) {
         console.log(error);
     }
@@ -32,13 +32,13 @@ const eliminar = async (req, res) => {
     const rol = await Rol.findById(id);
 
     if (!rol) {
-        const error = new Error("Registro no encontrado.");
+        const error = new Error("Rol No Encontrado.");
         return res.status(404).json({ msg: error.message, ok: "NO" });
     }
 
     try {
         await rol.deleteOne();
-        res.json({ msg: "Registro eliminado correctamente.", ok: "SI" });
+        res.json({ msg: "Rol Eliminado Correctamente.", ok: "SI" });
     } catch (error) {
         console.log(error);
     }
@@ -52,7 +52,7 @@ const editar = async (req, res) => {
     const rol = await Rol.findById(id);
 
     if (!rol) {
-        const error = new Error("Registro no encontrado.");
+        const error = new Error("Rol No Encontrado.");
         return res.status(404).json({ msg: error.message, ok: "NO" });
     }
 
@@ -62,7 +62,7 @@ const editar = async (req, res) => {
 
     try {
         const rolGuardado = await rol.save();
-        res.json({ body: rolGuardado, msg: "Registro actualizado correctamente.", ok: "SI" });
+        res.json({ body: rolGuardado, msg: "Registro Actualizado Correctamente.", ok: "SI" });
     } catch (error) {
         console.log(error);
     }
@@ -77,7 +77,7 @@ const listarUno = async (req, res) => {
     const rol = await Rol.findById(id);
 
     if (!rol) {
-        const error = new Error("Registro no encontrado.");
+        const error = new Error("Rol No Encontrado.");
         return res.status(404).json({ msg: error.message, ok: "NO" });
     }
 

@@ -13,7 +13,7 @@ const agregar = async (req, res) => {
     try {
         const especialidad = new Especialidad(req.body);
         const especialidadGuardada = await especialidad.save();
-        res.json({ body: especialidadGuardada, ok: "SI", msg: "Registro creado correctamente." });
+        res.json({ body: especialidadGuardada, ok: "SI", msg: "Especialidad Creada Correctamente." });
     } catch (error) {
         console.log(error);
     }
@@ -32,13 +32,13 @@ const eliminar = async (req, res) => {
     const especialidad = await Especialidad.findById(id);
 
     if (!especialidad) {
-        const error = new Error("Registro no encontrado.");
+        const error = new Error("Especialidad No Encontrada.");
         return res.status(404).json({ msg: error.message, ok: "NO" });
     }
 
     try {
         await especialidad.deleteOne();
-        res.json({ msg: "Registro eliminado correctamente.", ok: "SI" });
+        res.json({ msg: "Especialidad Eliminada Correctamente.", ok: "SI" });
     } catch (error) {
         console.log(error);
     }
@@ -52,7 +52,7 @@ const editar = async (req, res) => {
     const especialidad = await Especialidad.findById(id);
 
     if (!especialidad) {
-        const error = new Error("Registro no encontrado.");
+        const error = new Error("Especialidad No Encontrada.");
         return res.status(404).json({ msg: error.message, ok: "NO" });
     }
 
@@ -61,7 +61,7 @@ const editar = async (req, res) => {
 
     try {
         const especialidadGuardada = await especialidad.save();
-        res.json({ body: especialidadGuardada, msg: "Registro actualizado correctamente.", ok: "SI" });
+        res.json({ body: especialidadGuardada, msg: "Especialidad Actualizada Correctamente.", ok: "SI" });
     } catch (error) {
         console.log(error);
     }
@@ -75,7 +75,7 @@ const listarUno = async (req, res) => {
     const especialidad = await Especialidad.findById(id);
 
     if (!especialidad) {
-        const error = new Error("Registro no encontrado.");
+        const error = new Error("Especialidad No Encontrada.");
         return res.status(404).json({ msg: error.message, ok: "NO" });
     }
 
